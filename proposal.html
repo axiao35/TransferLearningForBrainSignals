@@ -1,0 +1,74 @@
+<h1>CS 7641 Project Proposal: Transfer Learning for Brain Signals</h1>
+<h2> Project group 8</h2>
+<h3> Team members: Andrew Xiao, Ekansh Gupta, Macmillan Jacobson, Ruikai Huang, William Shue</h3>
+<!--</br>-->
+
+<h2>Introduction</h2>
+
+<p>Human communication with machines has evolved from keyboard, mice to touch and voice-based commands over the years, with thought-based communication the next in line.
+
+Brain signals (measurement of the activity inside the brain) are useful for communicating with machines without any explicit effort like typing, speech, gestures, etc.
+
+Brain-Computer Interfaces (BCI) read brain signals in a person’s brain and interpret them to decode the user’s intent (e.g., turning off the lights, typing a letter on the screen, etc.)​</p>
+
+These BCI systems need supervised learning to decode
+certain brain signals
+
+Brain signals show a lot of variability between
+users, tasks, etc. which makes generalizability of
+detection models poor [1]. This is down to differences in
+probability distribution between the source and
+target data [2]. This makes it a necessity to retrain previous models to use them on unseen data, which considerably wastes time and effort of the user.
+ 
+Thus, to provide high performance across the board,
+these models need to be adapted for new and
+unseen data. Some of the related work in this area includes using domain adaptation to manipulate the target data w.r.t the source data [1], using spatial filtering based models to learn features [7], using optimal transport algorithms [3], and more recently, using deep learning models [4],[6] to detect the presence of brain signals.
+</p>
+
+<h2>Problem Definition and Methods</h2>
+<p>
+Motivated by the importance of Generalization in Brain signals, we explore improving the generalization of a specific kind of brain signal, known as the Error-related potential (Errp) in this project.
+An Errp signals is elicited in the brain when a user observes an error being made (like seeing a robot making the wrong move, etc.).
+We want to explore several methods which are as follows:
+<br>
+1. Adapting the testing data itself so that it becomes more identical to the training data. We want to explore both supervised and unsupervised methods to do so using approaches like domain adaptation [1] and optimal transport [3].
+<br>
+2. Adapting a ML model like EEGNet [4] by fine tuning it for the test data in a supervised manner
+</p>
+
+<h2> Dataset and Metrics</h2>
+<p>
+We will be using a publicly available ErrP dataset [5] for this project which has been used for model evaluation in previous research publications [1][4]
+This dataset contains the data of 26 subjects with 340 signals each, recorded via 56 electrodes on their scalp. Each signal is a time series sampled at 250Hz
+<br>
+For our metrics, we will be using balanced accuracy and AUC score as metrics for evaluating the performance of our models
+
+Balanced accuracy is a good metric for imbalanced class datasets as it gets rid of highly sensitive (biased towards the positive class) or highly specific models (biased towards the negative class)
+
+AUC is also a better metric than accuracy as it compares the performance of the model across different cut-off thresholds and thus provides a better evaluation of the model characteristics
+</p>
+
+<h2>Team Member Responsibilities and Contribution</h2>
+The link to the excel which details the responsibilities of each team member along with the proposed timeline can be found <a href='https://gtvault-my.sharepoint.com/:x:/g/personal/egupta8_gatech_edu/EXCZ2s0SWOhNqe0ExP-6FrIBJSJRaTb9aD6dHX8zzNGQFA?e=RWvscW'>here</a>.
+<br>
+The link to the excel which details the contribution of each team member to prepare the project task can be found <a href='https://gtvault-my.sharepoint.com/:x:/g/personal/egupta8_gatech_edu/EaI1nXq1ORlGiGaTDxulWuABpEGlmvOaxZt8xnZaDLDyRQ?e=gj2LQF'>here</a>.
+
+
+<h2>References</h2>
+<p>
+[1] P. Zanini, M. Congedo, C. Jutten, S. Said and Y. Berthoumieu, "Transfer Learning: A Riemannian Geometry Framework With Applications to Brain–Computer Interfaces," in IEEE Transactions on Biomedical Engineering, vol. 65, no. 5, pp. 1107-1116, May 2018
+<br>
+[2] Raza H, Rathee D, Zhou SM, Cecotti H, Prasad G. Covariate shift estimation based adaptive ensemble learning for handling non-stationarity in motor imagery related EEG-based brain-computer interface. Neurocomputing. 2019
+
+<br>
+[3] Nathalie T. H. Gayraud, Alain Rakotomamonjy, Maureen Clerc. Optimal Transport Applied to Transfer Learning For P300 Detection. BCI 2017 - 7th Graz Brain-Computer Interface Conference, Sep 2017, Graz, Austria. pp.6. ffhal-01556603f
+<br>
+[4] Lawhern, Vernon J., et al. "EEGNet: a compact convolutional neural network for EEG-based brain–computer interfaces." Journal of neural engineering 15.5 (2018): 056013
+<br>
+[5] P. Margaux, M. Emmanuel, D. S´ebastien, B. Olivier, and M. J´er´emie, “Objective and subjective evaluation of online error correction during p300-based spelling,” Advances in Human-Computer Interaction, vol. 2012, p. 4, 2012
+<br>
+[6] Schirrmeister, Robin Tibor, et al. "Deep learning with convolutional neural networks for EEG decoding and visualization." Human brain mapping 38.11 (2017): 5391-5420
+<br>
+[7] Cruz, Aniana, Gabriel Pires, and Urbano J. Nunes. "Spatial filtering based on Riemannian distance to improve the generalization of ErrP classification." Neurocomputing 470 (2022): 236-246.
+
+
